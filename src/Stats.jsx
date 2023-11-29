@@ -2,9 +2,10 @@ import React from 'react';
 import './css/index.css';
 import petitgreenhouseImage from './assets/littlegreenhouse.svg';
 import temperatureImage from './assets/temp.svg';
-import windImage from './assets/wind.svg'; // Ajoutez les autres images au besoin
+import windImage from './assets/wind.svg';
 import waterImage from './assets/water.svg';
 import opencloseImage from './assets/openclose.svg';
+import anemometreImage from './assets/anemometre.svg';
 
 const statsconst = {
   name: 'Température',
@@ -66,7 +67,11 @@ function Stats({ afficherBloc }) {
               <div className='circle-border-second'>
                 <img src={petitgreenhouseImage} alt='Serre' />
               </div>
-
+              <p>La température de la serre est à 21 °C</p>
+            </div>
+            <div className='buttons'>
+              <button className='button' value={1}>Je souhaite ouvrir la porte</button>
+              <button className='button' value={2}>Je souhaite fermer la porte</button>
             </div>
           </div>
         );
@@ -75,8 +80,13 @@ function Stats({ afficherBloc }) {
           <div className='container'>
             <div className='contain'>
               <div className='circle-border-second'>
-                <img src={petitgreenhouseImage} alt='Serre' />
+                <img src={anemometreImage} alt='Wind' />
               </div>
+              <p>La vitesse du vent est à 20 km/h</p>
+            </div>
+            <div className='buttons'>
+              <button className='button' value={1}>Je souhaite ouvrir la porte</button>
+              <button className='button' value={2}>Je souhaite fermer la porte</button>
             </div>
           </div>
         );
@@ -95,8 +105,13 @@ function Stats({ afficherBloc }) {
           <div className='container'>
             <div className='contain'>
               <div className='circle-border-second'>
-                <img src={petitgreenhouseImage} alt='Serre' />
+                <img src={petitgreenhouseImage} alt='Open / Close' />
               </div>
+              <p>La porte est actuellement <span className='opentext'>OUVERTE</span><span className='closetext'>FERMER</span></p>
+            </div>
+            <div className='buttons'>
+              <button className='button' value={1}>Je souhaite ouvrir la porte</button>
+              <button className='button' value={2}>Je souhaite fermer la porte</button>
             </div>
           </div>
         );
