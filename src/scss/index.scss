@@ -1,0 +1,17 @@
+// RESET AND BASES
+
+@import 'bases/reset';
+@import 'bases/variables';
+@import 'bases/font';
+
+// LAYOUT HEADER
+
+@import 'layouts/header';
+
+// TEMPLATES
+
+@import 'templates/app';
+
+// LAYOUT FOOTER
+
+@import 'layouts/footer';

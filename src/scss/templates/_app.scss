@@ -1,0 +1,236 @@
+.switcher {
+    background-color: #D2FAFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px;
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 30px;
+        background-color: #FFF;
+        border-radius: 50px;
+        padding: 8px;
+
+        .round {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            gap: 8px;
+
+            .link {
+                color: #A1A1A1;
+                text-align: center;
+                font-family: 'montserrat-regular';
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                text-decoration: none;
+            }
+
+            &.active {
+                border-radius: 46px;
+                background: #82DB6C;
+                padding: 8px;
+
+                .link {
+                    color: #FFF;
+                }
+            }
+        }
+    }
+}
+
+.greenhouse {
+    background-color: #D2FAFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px;
+
+    .container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        &>img {
+            width: 100%;
+        }
+
+        .overflow {
+            .button {
+                display: block;
+                position: relative;
+                width: 50px;
+                /* Ajustez la largeur et la hauteur selon vos besoins */
+                height: 50px;
+                border-radius: 50%;
+                /* Pour créer un cercle plein */
+                overflow: hidden;
+                background-color: #474747;
+
+                /* Pour masquer tout contenu dépassant du cercle */
+                img {
+                    width: 100%;
+                    /* Pour remplir le cercle */
+                    height: 100%;
+                    padding: 10px;
+                    /* Ajouter un padding de 10 pixels autour de l'image */
+                    box-sizing: border-box;
+                    /* Inclure le padding dans la largeur/hauteur totale */
+                }
+
+                &.wind {
+                    position: absolute;
+                    top: 0;
+                    left: 15%;
+                }
+
+                &.temp {
+                    position: absolute;
+                    top: 15%;
+                    left: 75%;
+                }
+
+                &.openclose {
+                    position: absolute;
+                    top: 50%;
+                    left: 75%;
+                }
+
+                &.water {
+                    position: absolute;
+                    top: 55%;
+                    left: 0;
+                }
+
+                &.clicked {
+                    background-color: white;
+                    border: 5px solid #6DC557;
+                }
+            }
+        }
+    }
+}
+
+.stats {
+    background-color: #D2FAFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 30px;
+    width: 100%;
+
+    .title {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-direction: row;
+        gap: 16px;
+
+        .circle-border {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: white;
+            border: 5px solid #6DC557;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: cover;
+                padding: 10px;
+            }
+        }
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        gap: 16px;
+
+        .contain {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            width: 100%;
+
+            .circle-border-second {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background-color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+                margin: 10px;
+
+                img {
+                    max-width: 100%;
+                    max-height: 100%;
+                    object-fit: cover;
+                    padding: 10px;
+                }
+            }
+
+            p {
+                border-radius: 36px;
+                background: #FFF;
+                padding: 15px 25px;
+                color: #A1A1A1;
+                font-family: 'montserrat-regular';
+                font-weight: 500;
+                width: 300px;
+            }
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            width: 80%;
+            gap: 16px;
+
+            .button {
+                background-color: #6DC557;
+                border: none;
+                border-radius: 50px;
+                padding: 10px;
+                color: #FFF;
+                text-align: center;
+                font-family: 'montserrat-regular';
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+            }
+        }
+    }
+}
