@@ -20,7 +20,7 @@ function Stats({ afficherBloc }) {
         return (
           <div className='title'>
             <div className='circle-border'>
-              <img src={temperatureImage} alt='' className='' />
+              <img src={temperatureImage} alt='logo temperature' className='' />
             </div>
             <h2>{statsconst.name}</h2>
           </div>
@@ -29,7 +29,7 @@ function Stats({ afficherBloc }) {
         return (
           <div className='title'>
             <div className='circle-border'>
-              <img src={windImage} alt='' className='' />
+              <img src={windImage} alt='logo wind' className='' />
             </div>
             <h2>{statsconst.name2}</h2>
           </div>
@@ -38,7 +38,7 @@ function Stats({ afficherBloc }) {
         return (
           <div className='title'>
             <div className='circle-border'>
-              <img src={waterImage} alt='' className='' />
+              <img src={waterImage} alt='logo water' className='' />
             </div>
             <h2>{statsconst.name3}</h2>
           </div>
@@ -47,7 +47,7 @@ function Stats({ afficherBloc }) {
         return (
           <div className='title'>
             <div className='circle-border'>
-              <img src={opencloseImage} alt='' className='' />
+              <img src={opencloseImage} alt='logo openclose' className='' />
             </div>
             <h2>{statsconst.name4}</h2>
           </div>
@@ -66,6 +66,7 @@ function Stats({ afficherBloc }) {
               <div className='circle-border-second'>
                 <img src={petitgreenhouseImage} alt='Serre' />
               </div>
+
             </div>
           </div>
         );
