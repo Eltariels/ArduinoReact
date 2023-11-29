@@ -9,9 +9,9 @@ import anemometreImage from './assets/anemometre.svg';
 
 const statsconst = {
   name: 'Température',
-  name2: 'Vent',
-  name3: 'Humidité',
-  name4: 'Open / Close'
+  name2: 'Vitesse du vent',
+  name3: 'Humidité du sol',
+  name4: 'Ouverture de la porte'
 };
 
 function Stats({ afficherBloc }) {
