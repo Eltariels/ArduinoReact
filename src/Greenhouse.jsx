@@ -27,7 +27,7 @@ function Greenhouse() {
           <img src={greenhouseImage} alt='Serre' />
           <div className='overflow'>
             <div className={`button wind ${afficherBloc === 'windBlock' ? 'visible clicked' : 'hidden'}`} id='wind' onClick={() => gererAffichage('windBlock')}>
-              <img src={wind} alt='image de vent' />
+              <img src={wind} alt='image de wind' />
             </div>
             <div className={`button temp ${afficherBloc === 'tempBlock' ? 'visible clicked' : 'hidden'}`} id='temp' onClick={() => gererAffichage('tempBlock')}>
               <img src={temp} alt='image de température' />
