@@ -13,6 +13,7 @@ function App() {
         <Greenhouse />
         <Plant />
         {/* <MyMQTTComponent /> */}
+        
       </React.StrictMode>
     </>
   );

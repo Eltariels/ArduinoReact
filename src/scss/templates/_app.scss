@@ -237,6 +237,14 @@
 
 .plant {
     background-color: #D2FAFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 30px;
+    width: 100%;
 
     .items {
         display: flex;
