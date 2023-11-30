@@ -126,7 +126,7 @@ function Stats({ afficherBloc }) {
         {renderBlockTitle()}
         {renderBlockContent()}
       </div>
-    </>
+    </> 
   );
 }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './css/index.css';
 import petitgreenhouseImage from './assets/littlegreenhouse.svg';
 import temperatureImage from './assets/temp.svg';
@@ -9,6 +9,7 @@ import courgetteImage from './assets/courgette.svg';
 import carotteImage from './assets/carotte.svg';
 import radisImage from './assets/radis.svg';
 import croixImage from './assets/croix.svg';
+import SwitcherDetails from './SwitcherDetails.jsx';
 
 const detailsconst = {
     name: 'Courgette',
@@ -18,10 +19,12 @@ const detailsconst = {
 };
 
 function Details({ afficherBloc }) {
-    const [humidityValue, setHumidityValue] = React.useState(0);
+    // Ajoutez un état local pour stocker la valeur du champ
+    const [inputValue, setInputValue] = useState(0);
 
-    const handleHumidityChange = (event) => {
-        setHumidityValue(event.target.value);
+    // Définissez la fonction handleInputChange pour mettre à jour la valeur du champ
+    const handleInputChange = (event) => {
+        setInputValue(event.target.value);
     };
 
     const renderBlockTitle = () => {
@@ -75,45 +78,47 @@ function Details({ afficherBloc }) {
                         <div className='contain'>
                             <div className='top'>
                                 <div className='circle-border-second'>
-                                    <img src={waterImage} alt='Serre' />
+                                    <img src={waterImage} alt='Eau' />
                                 </div>
                                 <p>QUEL EST LE TAUX D’HUMIDITÉ DANS LE SOL SOUHAITÉ ?</p>
                             </div>
                             <div className='bottom'>
-                                <input type='text' placeholder='20°C' value={humidityValue} onChange={handleHumidityChange} />
+                                <input type='text' placeholder='20°C' value={inputValue} onChange={handleInputChange} />
                             </div>
                         </div>
                         <div className='contain'>
                             <div className='top'>
                                 <div className='circle-border-second'>
-                                    <img src={waterImage} alt='Serre' />
+                                    <img src={windImage} alt='Vent' />
                                 </div>
-                                <p>QUEL EST LE TAUX D’HUMIDITÉ DANS LE SOL SOUHAITÉ ?</p>
+                                <p>À PARTIR DE QUELLE VITESSE DU VENT SOUHAITEZ-VOUS FERMER LA SERRE ?</p>
                             </div>
                             <div className='bottom'>
-                                <input type='text' placeholder='20°C' value={humidityValue} onChange={handleHumidityChange} />
+                                <input type='text' placeholder='20°C' value={inputValue} onChange={handleInputChange} />
                             </div>
                         </div>
                         <div className='contain'>
                             <div className='top'>
                                 <div className='circle-border-second'>
-                                    <img src={waterImage} alt='Serre' />
+                                    <img src={temperatureImage} alt='Température' />
                                 </div>
-                                <p>QUEL EST LE TAUX D’HUMIDITÉ DANS LE SOL SOUHAITÉ ?</p>
+                                <p>À QUELLE TEMPÉRATURE SOUHAITEZ-VOUS FERMER LA SERRE ?</p>
                             </div>
                             <div className='bottom'>
-                                <input type='text' placeholder='20°C' value={humidityValue} onChange={handleHumidityChange} />
+                                <input type='text' placeholder='20°C' value={inputValue} onChange={handleInputChange} />
                             </div>
                         </div>
                         <div className='contain'>
                             <div className='top'>
                                 <div className='circle-border-second'>
-                                    <img src={waterImage} alt='Serre' />
+                                    <img src={opencloseImage} alt='OpenClose' />
                                 </div>
-                                <p>QUEL EST LE TAUX D’HUMIDITÉ DANS LE SOL SOUHAITÉ ?</p>
+                                <p>OUVERTURE & FERMETURE DE LA SERRE</p>
                             </div>
                             <div className='bottom'>
-
+                                <React.StrictMode>
+                                    <SwitcherDetails />
+                                </React.StrictMode>
                             </div>
                         </div>
                     </div>
