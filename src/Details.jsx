@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './css/index.css';
-import petitgreenhouseImage from './assets/littlegreenhouse.svg';
 import temperatureImage from './assets/temp.svg';
 import windImage from './assets/wind.svg';
 import waterImage from './assets/water.svg';
@@ -19,12 +18,25 @@ const detailsconst = {
 };
 
 function Details({ afficherBloc }) {
-    // Ajoutez un état local pour stocker la valeur du champ
-    const [inputValue, setInputValue] = useState(0);
+    // Separate state variables for each input
+    const [courgettehumidityValue, setcourgetteHumidityValue] = useState('');
+    const [courgettewindValue, setcourgetteWindValue] = useState('');
+    const [courgettetemperatureValue, setcourgetteTemperatureValue] = useState('');
 
-    // Définissez la fonction handleInputChange pour mettre à jour la valeur du champ
-    const handleInputChange = (event) => {
-        setInputValue(event.target.value);
+    const [carottehumidityValue, setcarotteHumidityValue] = useState('');
+    const [carottewindValue, setcarotteWindValue] = useState('');
+    const [carottetemperatureValue, setcarotteTemperatureValue] = useState('');
+
+    const [radishumidityValue, setradisHumidityValue] = useState('');
+    const [radiswindValue, setradisWindValue] = useState('');
+    const [radistemperatureValue, setradisTemperatureValue] = useState('');
+
+    const [truchumidityValue, settrucHumidityValue] = useState('');
+    const [trucwindValue, settrucWindValue] = useState('');
+    const [tructemperatureValue, settrucTemperatureValue] = useState('');
+
+    const handleInputChange = (event, setValue) => {
+        setValue(event.target.value);
     };
 
     const renderBlockTitle = () => {
@@ -83,7 +95,7 @@ function Details({ afficherBloc }) {
                                 <p>QUEL EST LE TAUX D’HUMIDITÉ DANS LE SOL SOUHAITÉ ?</p>
                             </div>
                             <div className='bottom'>
-                                <input type='text' placeholder='20°C' value={inputValue} onChange={handleInputChange} />
+                                <input type='text' placeholder='20°C' value={courgettehumidityValue} onChange={(e) => handleInputChange(e, setcourgetteHumidityValue)} />
                             </div>
                         </div>
                         <div className='contain'>
@@ -94,7 +106,7 @@ function Details({ afficherBloc }) {
                                 <p>À PARTIR DE QUELLE VITESSE DU VENT SOUHAITEZ-VOUS FERMER LA SERRE ?</p>
                             </div>
                             <div className='bottom'>
-                                <input type='text' placeholder='20°C' value={inputValue} onChange={handleInputChange} />
+                                <input type='text' placeholder='20°C' value={courgettewindValue} onChange={(e) => handleInputChange(e, setcourgetteWindValue)} />
                             </div>
                         </div>
                         <div className='contain'>
@@ -105,7 +117,7 @@ function Details({ afficherBloc }) {
                                 <p>À QUELLE TEMPÉRATURE SOUHAITEZ-VOUS FERMER LA SERRE ?</p>
                             </div>
                             <div className='bottom'>
-                                <input type='text' placeholder='20°C' value={inputValue} onChange={handleInputChange} />
+                                <input type='text' placeholder='20°C' value={courgettetemperatureValue} onChange={(e) => handleInputChange(e, setcourgetteTemperatureValue)} />
                             </div>
                         </div>
                         <div className='contain'>
@@ -127,14 +139,50 @@ function Details({ afficherBloc }) {
                 return (
                     <div className='container'>
                         <div className='contain'>
-                            <div className='circle-border-second'>
-                                <img src={waterImage} alt='Wind' />
+                            <div className='top'>
+                                <div className='circle-border-second'>
+                                    <img src={waterImage} alt='Eau' />
+                                </div>
+                                <p>QUEL EST LE TAUX D’HUMIDITÉ DANS LE SOL SOUHAITÉ ?</p>
                             </div>
-                            <p>La vitesse du vent est à 20 km/h</p>
+                            <div className='bottom'>
+                                <input type='text' placeholder='20°C' value={carottehumidityValue} onChange={(e) => handleInputChange(e, setcarotteHumidityValue)} />
+                            </div>
                         </div>
-                        <div className='buttons'>
-                            <button className='button' value={1}>Je souhaite ouvrir la porte</button>
-                            <button className='button' value={2}>Je souhaite fermer la porte</button>
+                        <div className='contain'>
+                            <div className='top'>
+                                <div className='circle-border-second'>
+                                    <img src={windImage} alt='Vent' />
+                                </div>
+                                <p>À PARTIR DE QUELLE VITESSE DU VENT SOUHAITEZ-VOUS FERMER LA SERRE ?</p>
+                            </div>
+                            <div className='bottom'>
+                                <input type='text' placeholder='20°C' value={carottewindValue} onChange={(e) => handleInputChange(e, setcarotteWindValue)} />
+                            </div>
+                        </div>
+                        <div className='contain'>
+                            <div className='top'>
+                                <div className='circle-border-second'>
+                                    <img src={temperatureImage} alt='Température' />
+                                </div>
+                                <p>À QUELLE TEMPÉRATURE SOUHAITEZ-VOUS FERMER LA SERRE ?</p>
+                            </div>
+                            <div className='bottom'>
+                                <input type='text' placeholder='20°C' value={carottetemperatureValue} onChange={(e) => handleInputChange(e, setcarotteTemperatureValue)} />
+                            </div>
+                        </div>
+                        <div className='contain'>
+                            <div className='top'>
+                                <div className='circle-border-second'>
+                                    <img src={opencloseImage} alt='OpenClose' />
+                                </div>
+                                <p>OUVERTURE & FERMETURE DE LA SERRE</p>
+                            </div>
+                            <div className='bottom'>
+                                <React.StrictMode>
+                                    <SwitcherDetails />
+                                </React.StrictMode>
+                            </div>
                         </div>
                     </div>
                 );
@@ -142,8 +190,49 @@ function Details({ afficherBloc }) {
                 return (
                     <div className='container'>
                         <div className='contain'>
-                            <div className='circle-border-second'>
-                                <img src={waterImage} alt='Serre' />
+                            <div className='top'>
+                                <div className='circle-border-second'>
+                                    <img src={waterImage} alt='Eau' />
+                                </div>
+                                <p>QUEL EST LE TAUX D’HUMIDITÉ DANS LE SOL SOUHAITÉ ?</p>
+                            </div>
+                            <div className='bottom'>
+                                <input type='text' placeholder='20°C' value={radishumidityValue} onChange={(e) => handleInputChange(e, setradisHumidityValue)} />
+                            </div>
+                        </div>
+                        <div className='contain'>
+                            <div className='top'>
+                                <div className='circle-border-second'>
+                                    <img src={windImage} alt='Vent' />
+                                </div>
+                                <p>À PARTIR DE QUELLE VITESSE DU VENT SOUHAITEZ-VOUS FERMER LA SERRE ?</p>
+                            </div>
+                            <div className='bottom'>
+                                <input type='text' placeholder='20°C' value={radiswindValue} onChange={(e) => handleInputChange(e, setradisWindValue)} />
+                            </div>
+                        </div>
+                        <div className='contain'>
+                            <div className='top'>
+                                <div className='circle-border-second'>
+                                    <img src={temperatureImage} alt='Température' />
+                                </div>
+                                <p>À QUELLE TEMPÉRATURE SOUHAITEZ-VOUS FERMER LA SERRE ?</p>
+                            </div>
+                            <div className='bottom'>
+                                <input type='text' placeholder='20°C' value={radistemperatureValue} onChange={(e) => handleInputChange(e, setradisTemperatureValue)} />
+                            </div>
+                        </div>
+                        <div className='contain'>
+                            <div className='top'>
+                                <div className='circle-border-second'>
+                                    <img src={opencloseImage} alt='OpenClose' />
+                                </div>
+                                <p>OUVERTURE & FERMETURE DE LA SERRE</p>
+                            </div>
+                            <div className='bottom'>
+                                <React.StrictMode>
+                                    <SwitcherDetails />
+                                </React.StrictMode>
                             </div>
                         </div>
                     </div>
@@ -152,14 +241,50 @@ function Details({ afficherBloc }) {
                 return (
                     <div className='container'>
                         <div className='contain'>
-                            <div className='circle-border-second'>
-                                <img src={waterImage} alt='Open / Close' />
+                            <div className='top'>
+                                <div className='circle-border-second'>
+                                    <img src={waterImage} alt='Eau' />
+                                </div>
+                                <p>QUEL EST LE TAUX D’HUMIDITÉ DANS LE SOL SOUHAITÉ ?</p>
                             </div>
-                            <p>La porte est actuellement <span className='opentext'>OUVERTE</span><span className='closetext'>FERMER</span></p>
+                            <div className='bottom'>
+                                <input type='text' placeholder='20°C' value={truchumidityValue} onChange={(e) => handleInputChange(e, settrucHumidityValue)} />
+                            </div>
                         </div>
-                        <div className='buttons'>
-                            <button className='button' value={1}>Je souhaite ouvrir la porte</button>
-                            <button className='button' value={2}>Je souhaite fermer la porte</button>
+                        <div className='contain'>
+                            <div className='top'>
+                                <div className='circle-border-second'>
+                                    <img src={windImage} alt='Vent' />
+                                </div>
+                                <p>À PARTIR DE QUELLE VITESSE DU VENT SOUHAITEZ-VOUS FERMER LA SERRE ?</p>
+                            </div>
+                            <div className='bottom'>
+                                <input type='text' placeholder='20°C' value={trucwindValue} onChange={(e) => handleInputChange(e, settrucWindValue)} />
+                            </div>
+                        </div>
+                        <div className='contain'>
+                            <div className='top'>
+                                <div className='circle-border-second'>
+                                    <img src={temperatureImage} alt='Température' />
+                                </div>
+                                <p>À QUELLE TEMPÉRATURE SOUHAITEZ-VOUS FERMER LA SERRE ?</p>
+                            </div>
+                            <div className='bottom'>
+                                <input type='text' placeholder='20°C' value={tructemperatureValue} onChange={(e) => handleInputChange(e, settrucTemperatureValue)} />
+                            </div>
+                        </div>
+                        <div className='contain'>
+                            <div className='top'>
+                                <div className='circle-border-second'>
+                                    <img src={opencloseImage} alt='OpenClose' />
+                                </div>
+                                <p>OUVERTURE & FERMETURE DE LA SERRE</p>
+                            </div>
+                            <div className='bottom'>
+                                <React.StrictMode>
+                                    <SwitcherDetails />
+                                </React.StrictMode>
+                            </div>
                         </div>
                     </div>
                 );

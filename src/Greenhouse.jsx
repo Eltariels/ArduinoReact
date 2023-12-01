@@ -1,3 +1,5 @@
+// Greenhouse.jsx
+
 import React, { useState } from 'react';
 import './css/index.css';
 import greenhouseImage from './assets/greenhouse.svg';
@@ -6,6 +8,7 @@ import water from './assets/water.svg';
 import openclose from './assets/openclose.svg';
 import temp from './assets/temp.svg';
 import Stats from './Stats.jsx';
+import Socketjsx from './Socketjsx.jsx';
 
 const greenhouseconst = {
   name: 'La forêt enchantée',
@@ -13,6 +16,7 @@ const greenhouseconst = {
 
 function Greenhouse() {
   const [afficherBloc, setAfficherBloc] = useState(null);
+  const [mqttData, setMqttData] = useState(null);
 
   const gererAffichage = (bloc) => {
     // Si afficherBloc est le même que le bloc actuel, on le désactive en passant à null
@@ -41,8 +45,11 @@ function Greenhouse() {
           </div>
         </div>
       </div>
+      {/* Passez mqttData comme prop à Socketjsx */}
+      <Socketjsx setMqttData={setMqttData} />
       <React.StrictMode>
-        <Stats afficherBloc={afficherBloc} />
+        {/* Passez mqttData comme prop à Stats */}
+        <Stats afficherBloc={afficherBloc} mqttDataProp={mqttData} />
       </React.StrictMode>
     </>
   );
